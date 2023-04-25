@@ -55,7 +55,7 @@ def main():
     (-1, +1): pg.transform.rotozoom(kk_img, 45, 1.0),
     (-1, 0): pg.transform.rotozoom(kk_img, 0, 1.0),
     (-1, -1): pg.transform.rotozoom(kk_img, -45, 1.0)
-        }
+        }  # こうかとんの進行方向と画像の向きを決定する辞書
 
     while True:
         for event in pg.event.get():
