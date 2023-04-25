@@ -46,6 +46,17 @@ def main():
     bb_rct.center = x, y  # 練習3
     tmr = 0
 
+    muki_8 = {
+    (0, -1): pg.transform.rotozoom(kk_img, -90, 1.0),
+    (+1, -1): pg.transform.rotozoom(kk_img, -135, 1.0),
+    (+1, 0): pg.transform.rotozoom(kk_img, -180, 1.0),
+    (+1, +1): pg.transform.rotozoom(kk_img, 135, 1.0),
+    (0, +1): pg.transform.rotozoom(kk_img, 90, 1.0),
+    (-1, +1): pg.transform.rotozoom(kk_img, 45, 1.0),
+    (-1, 0): pg.transform.rotozoom(kk_img, 0, 1.0),
+    (-1, -1): pg.transform.rotozoom(kk_img, -45, 1.0)
+        }
+
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: 
@@ -57,6 +68,7 @@ def main():
         for k, mv in delta.items():
             if key_lst[k]:
                 kk_rct.move_ip(mv)  # 練習４
+                kk_img = muki_8[mv]
         if check_bound(screen.get_rect(), kk_rct) != (True, True):
              for k, mv in delta.items():
                  if key_lst[k]:
