@@ -33,6 +33,8 @@ def main():
     clock = pg.time.Clock()
     bg_img = pg.image.load("ex02/fig/pg_bg.jpg")
     kk_img = pg.image.load("ex02/fig/3.png")
+    kk_lose = pg.image.load("ex02/fig/8.png")
+    kk_lose = pg.transform.rotozoom(kk_lose, 0, 2.0)
     kk_img = pg.transform.rotozoom(kk_img, 0, 2.0)
     kk_rct = kk_img.get_rect()  # 練習4
     kk_rct.center = 900, 400  # 練習4
@@ -84,6 +86,10 @@ def main():
              vy *= -1
         screen.blit(bb_img, bb_rct)  # 練習3
         if kk_rct.colliderect(bb_rct):
+             screen.blit(bg_img, [0, 0])
+             screen.blit(kk_lose, kk_rct)
+             pg.display.update()
+             pg.time.delay(500)
              return
         pg.display.update()
         clock.tick(1000)
