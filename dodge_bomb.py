@@ -50,14 +50,14 @@ def main():
 
     muki_8 = {
     (0, -1): pg.transform.rotozoom(kk_img, -90, 1.0),
-    (+1, -1): pg.transform.rotozoom(kk_img, -135, 1.0),
-    (+1, 0): pg.transform.rotozoom(kk_img, -180, 1.0),
-    (+1, +1): pg.transform.rotozoom(kk_img, 135, 1.0),
+    (+1, -1): pg.transform.rotozoom((pg.transform.flip(kk_img, False, True)), -135, 1.0),
+    (+1, 0): pg.transform.rotozoom((pg.transform.flip(kk_img, False, True)), -180, 1.0),
+    (+1, +1): pg.transform.rotozoom((pg.transform.flip(kk_img, False, True)), 135, 1.0),
     (0, +1): pg.transform.rotozoom(kk_img, 90, 1.0),
     (-1, +1): pg.transform.rotozoom(kk_img, 45, 1.0),
     (-1, 0): pg.transform.rotozoom(kk_img, 0, 1.0),
     (-1, -1): pg.transform.rotozoom(kk_img, -45, 1.0)
-        }  # こうかとんの進行方向と画像の向きを決定する辞書
+        }  # こうかとんの進行方向から画像の向きを決定する辞書
 
     while True:
         for event in pg.event.get():
