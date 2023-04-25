@@ -13,8 +13,11 @@ def main():
     bb_image = pg.Surface((20, 20))
     pg.draw.circle(bb_image, (255, 0, 0), (10, 10), 10)  # 練習１
     bb_image.set_colorkey((0, 0, 0))  # 練習１
-    x, y = random.randint(0, 1600), random.randint(0, 900)
-    screen.blit(bb_image, [x, y])
+    x, y = random.randint(0, 1600), random.randint(0, 900)  # 練習2
+    #screen.blit(bb_image, [x, y])  # 練習2
+    vx, vy = +1, +1  # 練習3
+    bb_rct = bb_image.get_rect()  # 練習3
+    bb_rct.center = x, y  # 練習3
     tmr = 0
 
     while True:
@@ -25,7 +28,8 @@ def main():
         tmr += 1
         screen.blit(bg_img, [0, 0])
         screen.blit(kk_img, [900, 400])
-        screen.blit(bb_image, [x, y])
+        bb_rct.move_ip(vx, vy)  # 練習3
+        screen.blit(bb_image, bb_rct)  # 練習3
         pg.display.update()
         clock.tick(1000)
 
