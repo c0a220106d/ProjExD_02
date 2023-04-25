@@ -86,6 +86,7 @@ def main():
              vy *= -1
         screen.blit(bb_img, bb_rct)  # 練習3
         if kk_rct.colliderect(bb_rct):
+             # ゲームオーバー後の画像表示
              screen.blit(bg_img, [0, 0])
              screen.blit(kk_lose, kk_rct)
              pg.display.update()
